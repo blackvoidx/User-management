@@ -1,5 +1,6 @@
 import { Flex, Stack, Button } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
+import * as Yup from "yup"
 import RadioInput from "./RadioInput"
 import UserInput from "./UserInput"
 
@@ -22,8 +23,18 @@ const AddUserForm = () => {
         status: "Active"
     }
 
+    const validationSchema = Yup.object({
+        firstName: Yup.string().required("Field is required!"),
+        lastName: Yup.string().required("Field is required!"),
+        email: Yup.string().required("Field is required!").email("Email not valid"),
+        salary: Yup.string().required("Field is required!"),
+        birthdayDate: Yup.string().required("Field is required!"),
+    })
+
     return (
-        <Formik initialValues={initialValues}
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
             onSubmit={(values, actions) => {
                 console.log({ values, actions });
             }}>
