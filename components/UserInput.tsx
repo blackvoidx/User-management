@@ -1,16 +1,17 @@
 import { FormControl, FormLabel, Input, FormHelperText } from "@chakra-ui/react"
 import { FC } from "react"
+import { InputProps } from "@chakra-ui/react"
 
-type InputProps = {
-    lable: string,
-    size: "xs" | "sm" | "md" | "lg",
-    type: "text" | "email"
+type InputCustomProps = {
+    label: string
 }
 
-const UserInput: FC<InputProps> = (props) => {
+type InputChakraProps = InputProps & InputCustomProps
+
+const UserInput: FC<InputChakraProps> = (props) => {
     return (
-        <FormControl width="500px">
-            <FormLabel>{props.lable}</FormLabel>
+        <FormControl width="400px">
+            <FormLabel>{props.label}</FormLabel>
             <Input type='email' size={props.size} />
             {/* <FormHelperText>Email not valid</FormHelperText> */}
         </FormControl>
