@@ -52,10 +52,20 @@ const AddUserForm = () => {
                     <UserInput type="datetime-local" name="birthdayDate" label='Birthday date' />
                     <UserInput type="text" name="salary" label='Salary' />
                     <RadioInput name="status" />
-                    <Stack width="full" paddingX="4">
-                        <Button type="submit" width="300px" marginTop="4" colorScheme='whatsapp'>Add User</Button>
-                    </Stack>
                 </Flex >
+                <Stack direction={{ base: "column", "md": "row" }} justifyContent="center" spacing={4} marginTop={8}>
+                    <Button
+                        type="submit"
+                        width={{ base: "100%", "md": "300px" }}
+                        colorScheme='whatsapp'>
+                        Add User
+                    </Button>
+                    <Button
+                        width={{ base: "100%", "md": "200px" }}
+                        colorScheme='red'>
+                        Cancel
+                    </Button>
+                </Stack>
             </Form>
         </Formik>
     )

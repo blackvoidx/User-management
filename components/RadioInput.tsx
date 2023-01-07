@@ -8,13 +8,9 @@ type RadioInputProps = {
 const RadioInput = (props: RadioInputProps) => {
     return (
         <Field name={props.name}>
-            {({ field, form }: FieldProps) => {
+            {({ field }: FieldProps) => {
                 return (
-                    <FormControl
-                        width="400px"
-                        id={props.name}
-                        isInvalid={!!form.errors[props.name] && !!form.touched[props.name]}
-                    >
+                    <FormControl width={{ base: "100%", "md": "400px" }} id={props.name}>
                         <RadioGroup {...field} id={props.name} {...props}>
                             <Stack direction='row' spacing={4}>
                                 {["Active", "InActive"].map(value => (
