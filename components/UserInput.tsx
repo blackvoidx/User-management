@@ -1,20 +1,27 @@
 import { FormControl, FormLabel, Input, FormHelperText } from "@chakra-ui/react"
-import { useField } from "formik"
+import { Field, FieldProps } from "formik"
 
-interface ComponentProps<T> {
-    label: string;
-    name: string;
+interface InputProps<T> {
+    label: T,
+    name: T,
+    type: T
 }
 
-const UserInput = (props: ComponentProps<string>) => {
-    const [field, meta] = useField(props)
-    console.log(field, meta)
+const UserInput = (props: InputProps<string>) => {
     return (
-        <FormControl width="400px" isInvalid={meta.touched && !!meta.error}>
-            <FormLabel>{props.label}</FormLabel>
-            <Input size='lg' type='text' {...field} />
-            {/* <FormHelperText>Email not valid</FormHelperText> */}
-        </FormControl>
+        <Field name={props.name}>
+            {({ field, form }: FieldProps) => (
+                <FormControl
+                    width="400px"
+                    id={props.name}
+                    isInvalid={!!form.errors[props.name] && !!form.touched[props.name]}
+                >
+                    <FormLabel>{props.label}</FormLabel>
+                    <Input size='lg' type={props.type} {...field} />
+                    {/* <FormHelperText>Email not valid</FormHelperText> */}
+                </FormControl>
+            )}
+        </Field>
     )
 }
 

@@ -1,5 +1,6 @@
-import { Flex, RadioGroup, Radio, Stack, Button } from "@chakra-ui/react"
+import { Flex, Stack, Button } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
+import RadioInput from "./RadioInput"
 import UserInput from "./UserInput"
 
 interface MyFormValue {
@@ -34,21 +35,12 @@ const AddUserForm = () => {
                     alignItems="center"
                     gap="4"
                 >
-                    <UserInput name="firstName" label='First name' />
-                    <UserInput name="lastName" label='Last name' />
-                    <UserInput name="email" label='Email' />
-                    <UserInput name="birthdayDate" label='Birthday date' />
-                    <UserInput name="salary" label='Salary' />
-                    <RadioGroup width="400px" defaultValue='2'>
-                        <Stack spacing={8} direction='row' >
-                            <Radio colorScheme='green' value='1' size="lg">
-                                Active
-                            </Radio>
-                            <Radio colorScheme='red' value='2' size="lg">
-                                InActive
-                            </Radio>
-                        </Stack>
-                    </RadioGroup>
+                    <UserInput type="text" name="firstName" label='First name' />
+                    <UserInput type="text" name="lastName" label='Last name' />
+                    <UserInput type="email" name="email" label='Email' />
+                    <UserInput type="text" name="birthdayDate" label='Birthday date' />
+                    <UserInput type="text" name="salary" label='Salary' />
+                    <RadioInput name="status" />
                     <Stack width="full" paddingX="4">
                         <Button type="submit" width="300px" marginTop="4" colorScheme='whatsapp'>Add User</Button>
                     </Stack>
