@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Container, Heading } from '@chakra-ui/react'
 import AddUserForm from '../components/AddUserForm'
+import UserList from '../components/UserList'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Container maxW="8xl" bg="whiteAlpha.300" paddingTop={'16'} centerContent>
         <Heading as="h2" size="2xl">User management</Heading>
         <AddUserForm />
+        <UserList />
       </Container>
     </>
   )
