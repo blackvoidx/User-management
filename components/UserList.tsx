@@ -14,7 +14,7 @@ const UserList = () => {
     return (
         <TableContainer width="100%" marginTop={4} borderTop="1px solid #c9c9c9">
             <Table variant='striped' colorScheme="blackAlpha" size="lg">
-                <TableCaption>Simple user management</TableCaption>
+                <TableCaption placement="top">Simple user management</TableCaption>
                 <Thead>
                     <Tr>
                         <Th>First name</Th>
