@@ -1,5 +1,6 @@
 import { FormControl, FormLabel, Input, FormHelperText } from "@chakra-ui/react"
 import { Field, FieldProps, ErrorMessage } from "formik"
+import ErrorValidation from "./ErrorValidation"
 
 interface InputProps<T> {
     label: T,
@@ -18,7 +19,7 @@ const UserInput = (props: InputProps<string>) => {
                         isInvalid={!!form.errors[props.name] && !!form.touched[props.name]}>
                         <FormLabel>{props.label}</FormLabel>
                         <Input size='lg' marginBottom={1} type={props.type} {...field} />
-                        <ErrorMessage name={props.name} />
+                        <ErrorMessage name={props.name} component={ErrorValidation} />
                     </FormControl>
                 )
             }}
