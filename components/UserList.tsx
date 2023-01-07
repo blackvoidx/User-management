@@ -8,11 +8,13 @@ import {
     Td,
     TableCaption,
     TableContainer,
+    Button
 } from '@chakra-ui/react'
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons"
 
 const UserList = () => {
     return (
-        <TableContainer width="100%" marginTop={4} borderTop="1px solid #c9c9c9">
+        <TableContainer width="100%" marginY={4} borderY="1px solid #c9c9c9">
             <Table variant='striped' colorScheme="blackAlpha" size="lg">
                 <TableCaption placement="top">Simple user management</TableCaption>
                 <Thead>
@@ -31,21 +33,41 @@ const UserList = () => {
                         <Td>Yousefvand</Td>
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
-                        <Td>Active</Td>
+                        <Td>
+                            <Button colorScheme='green' size="sm">Active</Button>
+                        </Td>
+                        <Td>
+                            <DeleteIcon marginRight={8} fontSize={24} cursor="pointer"
+                                color="red.600"
+                            />
+                            <EditIcon fontSize={24} cursor="pointer" color="green" />
+                        </Td>
                     </Tr>
                     <Tr>
                         <Td>Mohammad</Td>
                         <Td>Yousefvand</Td>
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
-                        <Td>Active</Td>
+                        <Td>
+                            <Button colorScheme='red' size="sm">InActive</Button>
+                        </Td>
+                        <Td>
+                            <DeleteIcon marginRight={8} fontSize={24} cursor="pointer" color="red.600" />
+                            <EditIcon fontSize={24} cursor="pointer" color="green" />
+                        </Td>
                     </Tr>
                     <Tr>
                         <Td>Mohammad</Td>
                         <Td>Yousefvand</Td>
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
-                        <Td>InActive</Td>
+                        <Td>
+                            <Button colorScheme='green' size="sm">Active</Button>
+                        </Td>
+                        <Td>
+                            <DeleteIcon marginRight={8} fontSize={24} cursor="pointer" color="red.600" />
+                            <EditIcon fontSize={24} cursor="pointer" color="green" />
+                        </Td>
                     </Tr>
                 </Tbody>
                 <Tfoot>
