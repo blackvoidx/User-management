@@ -38,7 +38,7 @@ const AddUserForm = () => {
                     <UserInput type="text" name="firstName" label='First name' />
                     <UserInput type="text" name="lastName" label='Last name' />
                     <UserInput type="email" name="email" label='Email' />
-                    <UserInput type="text" name="birthdayDate" label='Birthday date' />
+                    <UserInput type="datetime-local" name="birthdayDate" label='Birthday date' />
                     <UserInput type="text" name="salary" label='Salary' />
                     <RadioInput name="status" />
                     <Stack width="full" paddingX="4">
