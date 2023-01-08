@@ -7,7 +7,8 @@ type ButtonProps = {
     children: string | React.ReactNode,
     marginTop?: number,
     size?: string,
-    leftIcon: JSX.Element,
+    leftIcon?: JSX.Element,
+    borderRadius?: string,
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => any
 };
 
@@ -19,6 +20,7 @@ const MyButton: React.FC<ButtonProps> = ({
     size,
     type,
     leftIcon,
+    borderRadius,
     onClick
 }) => {
     return <Button
@@ -29,6 +31,7 @@ const MyButton: React.FC<ButtonProps> = ({
         marginTop={marginTop}
         size={size}
         leftIcon={leftIcon}
+        borderRadius={borderRadius}
     >{children}
     </Button>;
 };

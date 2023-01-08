@@ -35,10 +35,18 @@ const UserList = () => {
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
                         <Td>
-                            <MyButton colorScheme='green' size="sm">Active</MyButton>
+                            <MyButton
+                                colorScheme='green'
+                                size="sm"
+                                borderRadius='full'
+                            >Active
+                            </MyButton>
                         </Td>
                         <Td>
-                            <DeleteIcon marginRight={8} fontSize={24} cursor="pointer"
+                            <DeleteIcon
+                                marginRight={8}
+                                fontSize={24}
+                                cursor="pointer"
                                 color="red.600"
                             />
                             <EditIcon fontSize={24} cursor="pointer" color="green" />
@@ -50,10 +58,20 @@ const UserList = () => {
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
                         <Td>
-                            <MyButton colorScheme='red' size="sm">InActive</MyButton>
+                            <MyButton
+                                colorScheme='green'
+                                size="sm"
+                                borderRadius='full'
+                            >Active
+                            </MyButton>
                         </Td>
                         <Td>
-                            <DeleteIcon marginRight={8} fontSize={24} cursor="pointer" color="red.600" />
+                            <DeleteIcon
+                                marginRight={8}
+                                fontSize={24}
+                                cursor="pointer"
+                                color="red.600"
+                            />
                             <EditIcon fontSize={24} cursor="pointer" color="green" />
                         </Td>
                     </Tr>
@@ -63,10 +81,20 @@ const UserList = () => {
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
                         <Td>
-                            <MyButton colorScheme='green' size="sm">Active</MyButton>
+                            <MyButton
+                                colorScheme='red'
+                                size="sm"
+                                borderRadius='full'
+                            >InActive
+                            </MyButton>
                         </Td>
                         <Td>
-                            <DeleteIcon marginRight={8} fontSize={24} cursor="pointer" color="red.600" />
+                            <DeleteIcon
+                                marginRight={8}
+                                fontSize={24}
+                                cursor="pointer"
+                                color="red.600"
+                            />
                             <EditIcon fontSize={24} cursor="pointer" color="green" />
                         </Td>
                     </Tr>
