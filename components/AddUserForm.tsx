@@ -3,6 +3,8 @@ import { Form, Formik } from "formik"
 import * as Yup from "yup"
 import RadioInput from "./RadioInput"
 import UserInput from "./UserInput"
+import { useAppDispatch } from "../app/hook"
+import { formAction } from "../app/formSlice"
 
 interface MyFormValue {
     firstName: string,
@@ -14,6 +16,7 @@ interface MyFormValue {
 }
 
 const AddUserForm = () => {
+    const dispatch = useAppDispatch()
     const initialValues: MyFormValue = {
         firstName: "",
         lastName: "",
@@ -61,6 +64,7 @@ const AddUserForm = () => {
                         Add User
                     </Button>
                     <Button
+                        onClick={() => dispatch(formAction.removeForm())}
                         width={{ base: "100%", "md": "200px" }}
                         colorScheme='red'>
                         Cancel
