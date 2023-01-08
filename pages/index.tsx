@@ -29,7 +29,7 @@ export default function Home() {
           colorScheme='blue'>
           Add new user
         </Button>
-        <AddUserForm />
+        {state.toggleFormShow ? <AddUserForm /> : null}
         <UserList />
       </Container>
     </>
