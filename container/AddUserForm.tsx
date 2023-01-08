@@ -1,8 +1,8 @@
 import { Flex, Stack, Button } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
 import * as Yup from "yup"
-import RadioInput from "./RadioInput"
-import UserInput from "./UserInput"
+import RadioInput from "../components/RadioInput"
+import UserInput from "../components/UserInput"
 import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/formSlice"
 
