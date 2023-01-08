@@ -2,8 +2,16 @@ import Head from 'next/head'
 import { Container, Heading, Button } from '@chakra-ui/react'
 import AddUserForm from '../components/AddUserForm'
 import UserList from '../components/UserList'
+import { useAppDispatch, useAppSelector } from '../app/hook'
+import { formAction } from '../app/formSlice'
 
 export default function Home() {
+  const state = useAppSelector(state => state.form)
+  const dispatch = useAppDispatch()
+
+  const handelToggleForm = () => {
+    dispatch(formAction.showForm())
+  }
   return (
     <>
       <Head>
@@ -15,6 +23,7 @@ export default function Home() {
       <Container maxW="8xl" bg="whiteAlpha.300" paddingTop={'16'} >
         <Heading as="h2" size="2xl" textAlign="center">User management</Heading>
         <Button
+          onClick={handelToggleForm}
           width={{ base: "200px", "md": "200px" }}
           marginTop={8}
           colorScheme='blue'>
