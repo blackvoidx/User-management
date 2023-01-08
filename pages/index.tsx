@@ -5,6 +5,7 @@ import UserList from '../container/UserList'
 import { useAppDispatch, useAppSelector } from '../app/hook'
 import { formAction } from '../app/formSlice'
 import MyButton from '../components/ButtonForm'
+import { AddIcon } from "@chakra-ui/icons"
 
 export default function Home() {
   const state = useAppSelector(state => state.form)
@@ -23,14 +24,17 @@ export default function Home() {
       </Head>
       <Container maxW="8xl" bg="whiteAlpha.300" paddingTop={'16'} >
         <Heading as="h2" size="2xl" textAlign="center">User management</Heading>
-        <MyButton
-          onClick={handelToggleForm}
-          width={{ base: "200px", "md": "200px" }}
-          marginTop={8}
-          colorScheme='blue'>
-          Add new user
-        </MyButton>
-        {state.toggleFormShow ? <AddUserForm /> : null}
+        {
+          state.toggleFormShow ? <AddUserForm /> :
+            <MyButton
+              onClick={handelToggleForm}
+              width={{ base: "200px", "md": "200px" }}
+              marginTop={8}
+              leftIcon={<AddIcon />}
+              colorScheme='blue'>
+              Add new user
+            </MyButton>
+        }
         <UserList />
       </Container>
     </>
