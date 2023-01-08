@@ -40,7 +40,7 @@ const AddUserForm = () => {
             }}>
             <Form>
                 <Flex
-                    marginTop="16"
+                    marginTop={4}
                     flexWrap='wrap'
                     justifyContent="space-around"
                     alignItems="center"
