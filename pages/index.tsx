@@ -4,6 +4,7 @@ import AddUserForm from '../container/AddUserForm'
 import UserList from '../container/UserList'
 import { useAppDispatch, useAppSelector } from '../app/hook'
 import { formAction } from '../app/formSlice'
+import MyButton from '../components/ButtonForm'
 
 export default function Home() {
   const state = useAppSelector(state => state.form)
@@ -22,13 +23,13 @@ export default function Home() {
       </Head>
       <Container maxW="8xl" bg="whiteAlpha.300" paddingTop={'16'} >
         <Heading as="h2" size="2xl" textAlign="center">User management</Heading>
-        <Button
+        <MyButton
           onClick={handelToggleForm}
           width={{ base: "200px", "md": "200px" }}
           marginTop={8}
           colorScheme='blue'>
           Add new user
-        </Button>
+        </MyButton>
         {state.toggleFormShow ? <AddUserForm /> : null}
         <UserList />
       </Container>

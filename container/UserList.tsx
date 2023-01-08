@@ -11,6 +11,7 @@ import {
     Button
 } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons"
+import MyButton from '../components/ButtonForm'
 
 const UserList = () => {
     return (
@@ -34,7 +35,7 @@ const UserList = () => {
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
                         <Td>
-                            <Button colorScheme='green' size="sm">Active</Button>
+                            <MyButton colorScheme='green' size="sm">Active</MyButton>
                         </Td>
                         <Td>
                             <DeleteIcon marginRight={8} fontSize={24} cursor="pointer"
@@ -49,7 +50,7 @@ const UserList = () => {
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
                         <Td>
-                            <Button colorScheme='red' size="sm">InActive</Button>
+                            <MyButton colorScheme='red' size="sm">InActive</MyButton>
                         </Td>
                         <Td>
                             <DeleteIcon marginRight={8} fontSize={24} cursor="pointer" color="red.600" />
@@ -62,7 +63,7 @@ const UserList = () => {
                         <Td>mmd@gmail.com</Td>
                         <Td isNumeric>23000</Td>
                         <Td>
-                            <Button colorScheme='green' size="sm">Active</Button>
+                            <MyButton colorScheme='green' size="sm">Active</MyButton>
                         </Td>
                         <Td>
                             <DeleteIcon marginRight={8} fontSize={24} cursor="pointer" color="red.600" />

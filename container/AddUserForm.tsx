@@ -3,6 +3,7 @@ import { Form, Formik } from "formik"
 import * as Yup from "yup"
 import RadioInput from "../components/RadioInput"
 import UserInput from "../components/UserInput"
+import MyButton from "../components/ButtonForm"
 import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/formSlice"
 
@@ -57,18 +58,18 @@ const AddUserForm = () => {
                     <RadioInput name="status" />
                 </Flex >
                 <Stack direction={{ base: "column", "md": "row" }} justifyContent="center" spacing={4} marginTop={8}>
-                    <Button
+                    <MyButton
                         type="submit"
                         width={{ base: "100%", "md": "300px" }}
                         colorScheme='whatsapp'>
                         Add User
-                    </Button>
-                    <Button
+                    </MyButton>
+                    <MyButton
                         onClick={() => dispatch(formAction.removeForm())}
                         width={{ base: "100%", "md": "200px" }}
                         colorScheme='red'>
                         Cancel
-                    </Button>
+                    </MyButton>
                 </Stack>
             </Form>
         </Formik>
