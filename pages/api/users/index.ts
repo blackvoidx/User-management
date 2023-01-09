@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import connectMongo from "../../database/connect";
-import { getUsers, addUser } from "../../database/controller";
+import connectMongo from "../../../database/connect";
+import { getUsers, addUser } from "../../../database/controller";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   connectMongo().catch(() =>
