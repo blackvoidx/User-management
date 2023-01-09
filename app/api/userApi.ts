@@ -19,4 +19,4 @@ export const userApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-const { useGetUsersQuery, useAddUserMutation } = userApiSlice;
+export const { useGetUsersQuery, useAddUserMutation } = userApiSlice;
