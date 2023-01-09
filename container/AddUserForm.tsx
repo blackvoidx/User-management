@@ -7,7 +7,7 @@ import MyButton from "../components/ButtonForm"
 import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/formSlice"
 
-interface MyFormValue {
+export interface MyFormValue {
     firstName: string,
     lastName: string,
     email: string,
