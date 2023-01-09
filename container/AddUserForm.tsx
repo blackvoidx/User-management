@@ -7,6 +7,7 @@ import UserInput from "../components/UserInput"
 import MyButton from "../components/ButtonForm"
 import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/formSlice"
+import { useAddUserMutation } from "../app/api/userApi"
 
 export interface MyFormValue {
     _id?: Key | null | undefined
@@ -20,6 +21,7 @@ export interface MyFormValue {
 
 const AddUserForm = () => {
     const dispatch = useAppDispatch()
+    const [addUser, { isError }] = useAddUserMutation()
     const initialValues: MyFormValue = {
         firstName: "",
         lastName: "",
@@ -37,13 +39,16 @@ const AddUserForm = () => {
         birthdayDate: Yup.string().required("Field is required!"),
     })
 
+    const onSubmit = async (data: MyFormValue) => {
+        await addUser(data)
+    }
+
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={(values, actions) => {
-                console.log({ values, actions });
-            }}>
+            onSubmit={onSubmit}
+        >
             <Form>
                 <Flex
                     marginTop={4}

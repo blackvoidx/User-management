@@ -9,8 +9,8 @@ export const userApiSlice = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
-    addUser: builder.mutation<MyFormValue, any>({
-      query: ({ body }) => ({
+    addUser: builder.mutation<MyFormValue, MyFormValue>({
+      query: (body) => ({
         url: "/api/users",
         method: "POST",
         body,
