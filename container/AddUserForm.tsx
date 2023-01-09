@@ -1,3 +1,4 @@
+import { Key } from "react"
 import { Flex, Stack, Button } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
 import * as Yup from "yup"
@@ -8,6 +9,7 @@ import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/formSlice"
 
 export interface MyFormValue {
+    _id?: Key | null | undefined
     firstName: string,
     lastName: string,
     email: string,
