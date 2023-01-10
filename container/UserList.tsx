@@ -3,7 +3,6 @@ import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     TableCaption,
@@ -49,16 +48,6 @@ const UserList = () => {
                             <UserItem key={user._id} {...user} onDelete={deleteHandler} />
                         ))}
                     </Tbody>
-                    <Tfoot>
-                        <Tr>
-                            <Th>First name</Th>
-                            <Th>Last name</Th>
-                            <Th>Email</Th>
-                            <Th isNumeric>Salary</Th>
-                            <Th>status</Th>
-                            <Th>Action</Th>
-                        </Tr>
-                    </Tfoot>
                 </Table>
             </TableContainer>
         </>
