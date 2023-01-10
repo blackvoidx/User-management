@@ -6,4 +6,5 @@ export const apiSlice = createApi({
     baseUrl: "http://localhost:3000",
   }),
   endpoints: (builder) => ({}),
+  tagTypes: ["User"],
 });

@@ -8,6 +8,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         url: "/api/users",
         method: "GET",
       }),
+      providesTags: ["User"],
     }),
     addUser: builder.mutation<MyFormValue, MyFormValue>({
       query: (body) => ({
@@ -15,6 +16,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body,
       }),
+      invalidatesTags: ["User"],
     }),
   }),
 });
