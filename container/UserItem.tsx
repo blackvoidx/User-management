@@ -8,7 +8,7 @@ import { MyFormValue } from './AddUserForm'
 import { memo } from 'react'
 
 type UserItemProps = {
-    onDelete: (Id: number) => void
+    onDelete: (Id: string) => void
 }
 
 const UserItem = (

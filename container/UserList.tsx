@@ -13,13 +13,16 @@ import { useGetUsersQuery } from '../app/api/userApi'
 import UserItem from './UserItem'
 import BackdropModal from '../components/Modal'
 import { useDisclosure } from '@chakra-ui/react'
+import { useAppDispatch } from '../app/hook'
+import { userAction } from '../app/slice/userSlice'
 
 const UserList = () => {
     const { isLoading, data } = useGetUsersQuery()
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const dispatch = useAppDispatch()
 
-    const deleteHandler = (Id: number) => {
-        console.log(Id)
+    const deleteHandler = (Id: string) => {
+        dispatch(userAction.setId(Id))
         onOpen()
     }
 
