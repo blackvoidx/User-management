@@ -6,14 +6,11 @@ import {
     Tfoot,
     Tr,
     Th,
-    Td,
     TableCaption,
     TableContainer,
-    Button
 } from '@chakra-ui/react'
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons"
-import MyButton from '../components/ButtonForm'
 import { useGetUsersQuery } from '../app/api/userApi'
+import UserItem from './UserItem'
 
 const UserList = () => {
     const { isLoading, data } = useGetUsersQuery()
@@ -36,29 +33,7 @@ const UserList = () => {
                 </Thead>
                 <Tbody>
                     {data?.map(user => (
-                        <Tr key={user._id}>
-                            <Td>{user.firstName}</Td>
-                            <Td>{user.lastName}</Td>
-                            <Td>{user.email}</Td>
-                            <Td isNumeric>{user.salary}</Td>
-                            <Td>
-                                <MyButton
-                                    colorScheme={user.status === "Active" ? "green" : "red"}
-                                    size="sm"
-                                    borderRadius='full'
-                                >{user.status}
-                                </MyButton>
-                            </Td>
-                            <Td>
-                                <DeleteIcon
-                                    marginRight={8}
-                                    fontSize={24}
-                                    cursor="pointer"
-                                    color="red.600"
-                                />
-                                <EditIcon fontSize={24} cursor="pointer" color="green" />
-                            </Td>
-                        </Tr>
+                        <UserItem key={user._id} {...user} />
                     ))}
                 </Tbody>
                 <Tfoot>
