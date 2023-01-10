@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type UserIdType = {
   userId: string;
@@ -12,11 +12,11 @@ const userSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {
-    setId: (state, action) => {
+    setId: (state, action: PayloadAction<string>) => {
       state.userId = action.payload;
     },
-    removeId: (state, action) => {
-      state.userId = action.payload;
+    removeId: (state) => {
+      state.userId = "";
     },
   },
 });
