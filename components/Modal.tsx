@@ -27,8 +27,8 @@ function BackdropModal({ isOpen, onClose }: any) {
         <ModalOverlay
             bg='none'
             backdropFilter='auto'
-            backdropInvert='80%'
-            backdropBlur='2px'
+            backdropInvert='90%'
+            // backdropBlur='2px'
         />
     )
 
