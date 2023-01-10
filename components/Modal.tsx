@@ -9,8 +9,17 @@ import {
     ModalCloseButton,
 } from '@chakra-ui/react'
 import { Button, Text } from '@chakra-ui/react'
+import { useAppSelector } from '../app/hook'
+import { useDeleteUserMutation } from '../app/api/userApi'
 
 function BackdropModal({ isOpen, onClose }: any) {
+    const state = useAppSelector(state => state.user)
+    const [deleteUser, { isError }] = useDeleteUserMutation()
+
+    const deleteApiRequest = () => {
+        deleteUser(state.userId)
+        onClose()
+    }
     const OverlayTwo = () => (
         <ModalOverlay
             bg='none'
@@ -32,7 +41,7 @@ function BackdropModal({ isOpen, onClose }: any) {
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose} marginRight={4}>Close</Button>
-                        <Button colorScheme="red">Delete</Button>
+                        <Button onClick={deleteApiRequest} colorScheme="red">Delete</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
