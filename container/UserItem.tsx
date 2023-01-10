@@ -7,14 +7,24 @@ import MyButton from '../components/ButtonForm'
 import { MyFormValue } from './AddUserForm'
 import { memo } from 'react'
 
+type UserItemProps = {
+    onDelete: (Id: number) => void
+}
+
 const UserItem = (
     { _id,
         firstName,
         lastName,
         email,
         salary,
-        status
-    }: MyFormValue) => {
+        status,
+        onDelete
+    }: MyFormValue & UserItemProps) => {
+
+    const deleteItem = (Id: any) => {
+        onDelete(Id)
+    }
+
     return (
         <Tr>
             <Td>{firstName}</Td>
@@ -35,6 +45,7 @@ const UserItem = (
                     fontSize={24}
                     cursor="pointer"
                     color="red.600"
+                    onClick={() => deleteItem(_id)}
                 />
                 <EditIcon fontSize={24} cursor="pointer" color="green" />
             </Td>
