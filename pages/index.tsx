@@ -3,7 +3,7 @@ import { Container, Heading, Button } from '@chakra-ui/react'
 import AddUserForm from '../container/AddUserForm'
 import UserList from '../container/UserList'
 import { useAppDispatch, useAppSelector } from '../app/hook'
-import { formAction } from '../app/formSlice'
+import { formAction } from '../app/slice/formSlice'
 import MyButton from '../components/ButtonForm'
 import { AddIcon } from "@chakra-ui/icons"
 

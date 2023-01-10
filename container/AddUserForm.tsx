@@ -6,7 +6,7 @@ import RadioInput from "../components/RadioInput"
 import UserInput from "../components/UserInput"
 import MyButton from "../components/ButtonForm"
 import { useAppDispatch } from "../app/hook"
-import { formAction } from "../app/formSlice"
+import { formAction } from "../app/slice/formSlice"
 import { useAddUserMutation } from "../app/api/userApi"
 
 export interface MyFormValue {

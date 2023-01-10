@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import formSlice from "./formSlice";
+import formSlice from "./slice/formSlice";
 import { apiSlice } from "./api/api";
 
 export const store = configureStore({
