@@ -34,13 +34,13 @@ const UserList = () => {
                 <Table variant='striped' colorScheme="blackAlpha" size="lg">
                     <TableCaption placement="top">Simple user management</TableCaption>
                     <Thead>
-                        <Tr>
-                            <Th>First name</Th>
-                            <Th>Last name</Th>
-                            <Th>Email</Th>
-                            <Th isNumeric>Salary</Th>
-                            <Th>status</Th>
-                            <Th>Action</Th>
+                        <Tr backgroundColor="blackAlpha.800">
+                            <Th color="white">First name</Th>
+                            <Th color="white">Last name</Th>
+                            <Th color="white">Email</Th>
+                            <Th color="white" isNumeric>Salary</Th>
+                            <Th color="white">status</Th>
+                            <Th color="white">Action</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
