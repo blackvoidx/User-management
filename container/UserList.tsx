@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import {
     Table,
     Thead,
@@ -21,10 +21,10 @@ const UserList = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const dispatch = useAppDispatch()
 
-    const deleteHandler = (Id: string) => {
+    const deleteHandler = useCallback((Id: string) => {
         dispatch(userAction.setId(Id))
         onOpen()
-    }
+    }, [dispatch, onOpen])
 
     if (isLoading) return <h2>is Loading...</h2>
 

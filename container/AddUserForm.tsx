@@ -1,6 +1,6 @@
 import { Key } from "react"
-import { Flex, Stack, Button } from "@chakra-ui/react"
-import { Form, Formik } from "formik"
+import { Flex, Stack } from "@chakra-ui/react"
+import { Form, Formik, } from "formik"
 import * as Yup from "yup"
 import RadioInput from "../components/RadioInput"
 import UserInput from "../components/UserInput"
@@ -21,7 +21,7 @@ export interface MyFormValue {
 
 const AddUserForm = () => {
     const dispatch = useAppDispatch()
-    const [addUser, { isError }] = useAddUserMutation()
+    const [addUser, { isSuccess }] = useAddUserMutation()
     const initialValues: MyFormValue = {
         firstName: "",
         lastName: "",
@@ -39,8 +39,11 @@ const AddUserForm = () => {
         birthdayDate: Yup.string().required("Field is required!"),
     })
 
-    const onSubmit = async (data: MyFormValue) => {
+    const onSubmit = async (data: MyFormValue, { resetForm }: any) => {
         await addUser(data)
+        if(isSuccess){
+            resetForm({})
+        }
     }
 
     return (

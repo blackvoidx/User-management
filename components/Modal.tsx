@@ -11,6 +11,7 @@ import { Button, Text } from '@chakra-ui/react'
 import { useAppDispatch, useAppSelector } from '../app/hook'
 import { useDeleteUserMutation } from '../app/api/userApi'
 import { userAction } from '../app/slice/userSlice'
+import { memo } from 'react'
 
 function BackdropModal({ isOpen, onClose }: any) {
     const state = useAppSelector(state => state.user)
@@ -51,4 +52,4 @@ function BackdropModal({ isOpen, onClose }: any) {
     )
 }
 
-export default BackdropModal
+export default memo(BackdropModal)
