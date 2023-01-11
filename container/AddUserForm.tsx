@@ -41,9 +41,7 @@ const AddUserForm = () => {
 
     const onSubmit = async (data: MyFormValue, { resetForm }: any) => {
         await addUser(data)
-        if(isSuccess){
-            resetForm({})
-        }
+        resetForm({})
     }
 
     return (

@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { useGetUsersQuery } from '../app/api/userApi'
 import UserItem from './UserItem'
-import BackdropModal from '../components/Modal'
+import BackdropModal from './Modal'
 import { useDisclosure } from '@chakra-ui/react'
 import { useAppDispatch } from '../app/hook'
 import { userAction } from '../app/slice/userSlice'
