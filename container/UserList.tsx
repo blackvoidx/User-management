@@ -14,6 +14,7 @@ import BackdropModal from './Modal'
 import { useDisclosure } from '@chakra-ui/react'
 import { useAppDispatch } from '../app/hook'
 import { userAction } from '../app/slice/userSlice'
+import { formAction } from '../app/slice/formSlice'
 
 const UserList = () => {
     const { isLoading, data } = useGetUsersQuery()
@@ -24,6 +25,11 @@ const UserList = () => {
         dispatch(userAction.deleteId(Id))
         onOpen()
     }, [dispatch, onOpen])
+
+    const updateHandler = useCallback((Id: string) => {
+        dispatch(userAction.updateId(Id))
+        dispatch(formAction.enableEditMode())
+    }, [dispatch])
 
     if (isLoading) return <h2>is Loading...</h2>
 
@@ -45,7 +51,11 @@ const UserList = () => {
                     </Thead>
                     <Tbody>
                         {data?.map(user => (
-                            <UserItem key={user._id} {...user} onDelete={deleteHandler} />
+                            <UserItem
+                                key={user._id}
+                                {...user}
+                                onDelete={deleteHandler}
+                                onUpdate={updateHandler} />
                         ))}
                     </Tbody>
                 </Table>

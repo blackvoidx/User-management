@@ -8,7 +8,8 @@ import { MyFormValue } from './AddUserForm'
 import { memo } from 'react'
 
 type UserItemProps = {
-    onDelete: (Id: string) => void
+    onDelete: (Id: string) => void,
+    onUpdate: (Id: string) => void,
 }
 
 const UserItem = (
@@ -18,11 +19,16 @@ const UserItem = (
         email,
         salary,
         status,
-        onDelete
+        onDelete,
+        onUpdate
     }: MyFormValue & UserItemProps) => {
 
     const deleteItem = (Id: any): void => {
         onDelete(Id)
+    }
+
+    const updateItem = (Id: any): void => {
+        onUpdate(Id)
     }
 
     return (
@@ -47,7 +53,11 @@ const UserItem = (
                     color="red.600"
                     onClick={() => deleteItem(_id)}
                 />
-                <EditIcon fontSize={24} cursor="pointer" color="green" />
+                <EditIcon
+                    onClick={() => updateItem(_id)}
+                    fontSize={24}
+                    cursor="pointer"
+                    color="green" />
             </Td>
         </Tr>
     )

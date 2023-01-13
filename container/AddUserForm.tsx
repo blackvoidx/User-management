@@ -8,6 +8,7 @@ import MyButton from "../components/ButtonForm"
 import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/slice/formSlice"
 import { useAddUserMutation } from "../app/api/userApi"
+import { useAppSelector } from "../app/hook"
 
 export interface MyFormValue {
     _id?: Key | null | undefined
@@ -20,6 +21,7 @@ export interface MyFormValue {
 }
 
 const AddUserForm = () => {
+    const state = useAppSelector(state => state.form)
     const dispatch = useAppDispatch()
     const [addUser, { isSuccess }] = useAddUserMutation()
     const initialValues: MyFormValue = {
@@ -69,11 +71,17 @@ const AddUserForm = () => {
                     <MyButton
                         type="submit"
                         width={{ base: "100%", "md": "300px" }}
-                        colorScheme='whatsapp'>
-                        Add User
+                        colorScheme={state.editMode ? "yellow" : 'whatsapp'}>
+                        {state.editMode ? "Update User" : "Add User"}
                     </MyButton>
                     <MyButton
-                        onClick={() => dispatch(formAction.removeForm())}
+                        onClick={() => {
+                            if (state.editMode) {
+                                dispatch(formAction.disableEditMode())
+                                return
+                            }
+                            dispatch(formAction.removeForm())
+                        }}
                         width={{ base: "100%", "md": "200px" }}
                         colorScheme='red'>
                         Cancel

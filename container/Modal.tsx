@@ -19,7 +19,7 @@ function BackdropModal({ isOpen, onClose }: any) {
     const [deleteUser, { isError }] = useDeleteUserMutation()
 
     const deleteApiRequest = () => {
-        deleteUser(state.deleteId)
+        deleteUser(state.deleteId) //delete api
         dispatch(userAction.removeDeleteId())
         onClose()
     }
