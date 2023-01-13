@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons"
 import MyButton from '../components/ButtonForm'
-import { MyFormValue } from './AddUserForm'
+import { MyFormValue } from '../types/type'
 import { memo } from 'react'
 
 type UserItemProps = {

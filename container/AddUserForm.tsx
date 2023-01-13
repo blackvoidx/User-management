@@ -1,4 +1,3 @@
-import { Key } from "react"
 import { Flex, Stack } from "@chakra-ui/react"
 import { Form, Formik, } from "formik"
 import * as Yup from "yup"
@@ -11,16 +10,7 @@ import { useAddUserMutation, useGetUserQuery, useUpdateUserMutation } from "../a
 import { useAppSelector } from "../app/hook"
 import { userAction } from "../app/slice/userSlice"
 import fieldsData from "../data/field"
-
-export interface MyFormValue {
-    _id?: Key | null | undefined
-    firstName: string,
-    lastName: string,
-    email: string,
-    salary: string,
-    birthdayDate: string,
-    status: "Active" | "InActive"
-}
+import { MyFormValue } from "../types/type"
 
 const AddUserForm = () => {
     const state = useAppSelector(state => state.form)

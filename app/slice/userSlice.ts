@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MyFormValue } from "../../container/AddUserForm";
+import { MyFormValue } from "../../types/type";
 
 type UserIdTypes = {
   deleteId: string;

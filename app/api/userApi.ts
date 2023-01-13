@@ -1,5 +1,5 @@
 import { apiSlice } from "./api";
-import { MyFormValue } from "../../container/AddUserForm";
+import { MyFormValue } from "../../types/type";
 
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
