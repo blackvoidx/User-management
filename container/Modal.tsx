@@ -19,8 +19,8 @@ function BackdropModal({ isOpen, onClose }: any) {
     const [deleteUser, { isError }] = useDeleteUserMutation()
 
     const deleteApiRequest = () => {
-        deleteUser(state.userId)
-        dispatch(userAction.removeId())
+        deleteUser(state.deleteId)
+        dispatch(userAction.removeDeleteId())
         onClose()
     }
     const OverlayTwo = () => (
@@ -28,7 +28,7 @@ function BackdropModal({ isOpen, onClose }: any) {
             bg='none'
             backdropFilter='auto'
             backdropInvert='90%'
-            // backdropBlur='2px'
+        // backdropBlur='2px'
         />
     )
 

@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { stat } from "fs";
 
 type ToggleFormType = {
   toggleFormShow: boolean;
+  editMode: boolean;
 };
 
 const initialState: ToggleFormType = {
   toggleFormShow: false,
+  editMode: false,
 };
 
 const formSlice = createSlice({
@@ -17,6 +20,12 @@ const formSlice = createSlice({
     },
     removeForm: (state) => {
       state.toggleFormShow = false;
+    },
+    enableEditMode: (state) => {
+      state.editMode = true;
+    },
+    disableEditMode: (state) => {
+      state.editMode = false;
     },
   },
 });

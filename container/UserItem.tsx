@@ -21,7 +21,7 @@ const UserItem = (
         onDelete
     }: MyFormValue & UserItemProps) => {
 
-    const deleteItem = (Id: any) => {
+    const deleteItem = (Id: any): void => {
         onDelete(Id)
     }
 

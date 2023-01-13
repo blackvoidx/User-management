@@ -21,7 +21,7 @@ const UserList = () => {
     const dispatch = useAppDispatch()
 
     const deleteHandler = useCallback((Id: string) => {
-        dispatch(userAction.setId(Id))
+        dispatch(userAction.deleteId(Id))
         onOpen()
     }, [dispatch, onOpen])
 
