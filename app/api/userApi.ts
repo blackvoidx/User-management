@@ -10,6 +10,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["User"],
     }),
+    getUser: builder.query<MyFormValue, string>({
+      query: (userId) => ({
+        url: `/api/users/${userId}`,
+        method: "GET",
+      }),
+    }),
     addUser: builder.mutation<MyFormValue, MyFormValue>({
       query: (body) => ({
         url: "/api/users",
@@ -38,6 +44,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetUsersQuery,
+  useGetUserQuery,
   useAddUserMutation,
   useDeleteUserMutation,
   useUpdateUserMutation,

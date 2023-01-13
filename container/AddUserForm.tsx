@@ -9,6 +9,7 @@ import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/slice/formSlice"
 import { useAddUserMutation } from "../app/api/userApi"
 import { useAppSelector } from "../app/hook"
+import { userAction } from "../app/slice/userSlice"
 
 export interface MyFormValue {
     _id?: Key | null | undefined
@@ -78,13 +79,14 @@ const AddUserForm = () => {
                         onClick={() => {
                             if (state.editMode) {
                                 dispatch(formAction.disableEditMode())
+                                dispatch(userAction.removeUpdateId())
                                 return
                             }
                             dispatch(formAction.removeForm())
                         }}
                         width={{ base: "100%", "md": "200px" }}
                         colorScheme='red'>
-                        Cancel
+                        {state.editMode ? "Cancel Edit mode" : "Close Form"}
                     </MyButton>
                 </Stack>
             </Form>
