@@ -10,6 +10,7 @@ import { formAction } from "../app/slice/formSlice"
 import { useAddUserMutation, useGetUserQuery, useUpdateUserMutation } from "../app/api/userApi"
 import { useAppSelector } from "../app/hook"
 import { userAction } from "../app/slice/userSlice"
+import fieldsData from "../data/field"
 
 export interface MyFormValue {
     _id?: Key | null | undefined
@@ -70,11 +71,13 @@ const AddUserForm = () => {
                     alignItems="center"
                     gap="4"
                 >
-                    <UserInput type="text" name="firstName" label='First name' />
-                    <UserInput type="text" name="lastName" label='Last name' />
-                    <UserInput type="email" name="email" label='Email' />
-                    <UserInput type="date" name="birthdayDate" label='Birthday date' />
-                    <UserInput type="text" name="salary" label='Salary' />
+                    {fieldsData.map(field => (
+                        <UserInput
+                            key={field.name}
+                            type={field.type}
+                            name={field.name}
+                            label={field.label} />
+                    ))}
                     <RadioInput name="status" />
                 </Flex >
                 <Stack direction={{ base: "column", "md": "row" }} justifyContent="center" spacing={4} marginTop={8}>
