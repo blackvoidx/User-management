@@ -10,6 +10,7 @@ export const store = configureStore({
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (GDM) => GDM().concat(apiSlice.middleware),
+  // GDM => getDefaultMiddleware
 });
 
 export type RootState = ReturnType<typeof store.getState>;
