@@ -27,7 +27,6 @@ const UserList = () => {
     }, [dispatch, onOpen])
 
     const updateHandler = useCallback((Id: string) => {
-        dispatch(userAction.updateId(Id))
         dispatch(formAction.showForm())
         dispatch(formAction.enableEditMode())
         const userSelectUpdate = data?.find(user => {

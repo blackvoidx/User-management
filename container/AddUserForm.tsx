@@ -47,7 +47,7 @@ const AddUserForm = () => {
 
     const onSubmit = async (data: MyFormValue, { resetForm }: any) => {
         if (state.editMode) {
-            await updateUser({ userId: userState.updateId, body: data })
+            await updateUser(data)
             dispatch(formAction.disableEditMode())
         } else {
             await addUser(data)
@@ -88,7 +88,6 @@ const AddUserForm = () => {
                         onClick={() => {
                             if (state.editMode) {
                                 dispatch(formAction.disableEditMode())
-                                dispatch(userAction.removeUpdateId())
                                 dispatch(userAction.userUpdateInfo({} as MyFormValue))
                                 return
                             }
