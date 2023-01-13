@@ -7,7 +7,7 @@ import UserInput from "../components/UserInput"
 import MyButton from "../components/ButtonForm"
 import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/slice/formSlice"
-import { useAddUserMutation } from "../app/api/userApi"
+import { useAddUserMutation, useGetUserQuery } from "../app/api/userApi"
 import { useAppSelector } from "../app/hook"
 import { userAction } from "../app/slice/userSlice"
 
@@ -23,8 +23,12 @@ export interface MyFormValue {
 
 const AddUserForm = () => {
     const state = useAppSelector(state => state.form)
+    const userId = useAppSelector(state => state.user.updateId)
     const dispatch = useAppDispatch()
     const [addUser, { isSuccess }] = useAddUserMutation()
+    // const { data } = useGetUserQuery(userId)
+    // console.log(data);
+
     const initialValues: MyFormValue = {
         firstName: "",
         lastName: "",
@@ -80,6 +84,7 @@ const AddUserForm = () => {
                             if (state.editMode) {
                                 dispatch(formAction.disableEditMode())
                                 dispatch(userAction.removeUpdateId())
+                                dispatch(userAction.userUpdateInfo({} as MyFormValue))
                                 return
                             }
                             dispatch(formAction.removeForm())

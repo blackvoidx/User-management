@@ -1,13 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { MyFormValue } from "../../container/AddUserForm";
 
 type UserIdTypes = {
   deleteId: string;
   updateId: string;
+  userUpdateInfo: MyFormValue;
 };
 
 const initialState: UserIdTypes = {
   deleteId: "",
   updateId: "",
+  userUpdateInfo: {} as MyFormValue,
 };
 
 const userSlice = createSlice({
@@ -25,6 +28,9 @@ const userSlice = createSlice({
     },
     removeUpdateId: (state) => {
       state.updateId = "";
+    },
+    userUpdateInfo: (state, action: PayloadAction<MyFormValue>) => {
+      state.userUpdateInfo = action.payload;
     },
   },
 });

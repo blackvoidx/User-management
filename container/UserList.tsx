@@ -28,8 +28,13 @@ const UserList = () => {
 
     const updateHandler = useCallback((Id: string) => {
         dispatch(userAction.updateId(Id))
+        dispatch(formAction.showForm())
         dispatch(formAction.enableEditMode())
-    }, [dispatch])
+        const userSelectUpdate = data?.find(user => {
+            return user._id === Id
+        })
+        if (userSelectUpdate) dispatch(userAction.userUpdateInfo(userSelectUpdate))
+    }, [data, dispatch])
 
     if (isLoading) return <h2>is Loading...</h2>
 
