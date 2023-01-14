@@ -7,7 +7,7 @@ import UserInput from "../components/UserInput"
 import MyButton from "../components/ButtonForm"
 import { useAppDispatch } from "../app/hook"
 import { formAction } from "../app/slice/formSlice"
-import { useAddUserMutation, useGetUserQuery } from "../app/api/userApi"
+import { useAddUserMutation, useGetUserQuery, useUpdateUserMutation } from "../app/api/userApi"
 import { useAppSelector } from "../app/hook"
 import { userAction } from "../app/slice/userSlice"
 
@@ -23,11 +23,10 @@ export interface MyFormValue {
 
 const AddUserForm = () => {
     const state = useAppSelector(state => state.form)
-    const userId = useAppSelector(state => state.user.updateId)
+    const userState = useAppSelector(state => state.user)
     const dispatch = useAppDispatch()
     const [addUser, { isSuccess }] = useAddUserMutation()
-    // const { data } = useGetUserQuery(userId)
-    // console.log(data);
+    const [updateUser, { isError }] = useUpdateUserMutation()
 
     const initialValues: MyFormValue = {
         firstName: "",
@@ -47,15 +46,21 @@ const AddUserForm = () => {
     })
 
     const onSubmit = async (data: MyFormValue, { resetForm }: any) => {
-        await addUser(data)
+        if (state.editMode) {
+            await updateUser({ userId: userState.updateId, body: data })
+            dispatch(formAction.disableEditMode())
+        } else {
+            await addUser(data)
+        }
         resetForm({})
     }
 
     return (
         <Formik
-            initialValues={initialValues}
+            initialValues={state.editMode ? userState.userUpdateInfo : initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
+            enableReinitialize
         >
             <Form>
                 <Flex

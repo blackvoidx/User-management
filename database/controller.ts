@@ -43,8 +43,9 @@ export const addUser = async (req: NextApiRequest, res: NextApiResponse) => {
 export const updateUser = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const formData = req.body;
-    if (formData) {
-      const user = await User.findOneAndUpdate(req.body._id, formData);
+    const { userId } = req.query;
+    if (formData && userId) {
+      const user = await User.findByIdAndUpdate(userId, formData);
       res.status(200).json(user);
     }
     res.status(404).json({ error: "Cannot Selected User..." });
