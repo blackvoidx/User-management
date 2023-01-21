@@ -31,7 +31,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["User"],
     }),
-    updateUser: builder.mutation<any, MyFormValue>({
+    updateUser: builder.mutation<MyFormValue, MyFormValue>({
       query: (body) => ({
         url: `api/users/${body._id}`,
         method: "PUT",
