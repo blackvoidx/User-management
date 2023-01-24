@@ -1,9 +1,9 @@
 import mongoose, { ConnectOptions } from "mongoose";
 
-type ConnectionOptionsExtend = {
+interface ConnectionOptionsExtend {
   useNewUrlParser: boolean;
   useUnifiedTopology: boolean;
-};
+}
 
 const options: ConnectOptions & ConnectionOptionsExtend = {
   useNewUrlParser: true,
@@ -13,8 +13,13 @@ const options: ConnectOptions & ConnectionOptionsExtend = {
 const connectMongo = async () => {
   try {
     mongoose.set("strictQuery", true);
-    await mongoose.connect(process.env.MONGODB_URI?.toString()!, options);
-    console.log("CONNECTED DATABASE");
+    const { connection } = await mongoose.connect(
+      process.env.MONGODB_URI?.toString()!,
+      options
+    );
+    if (connection.readyState === 1) {
+      console.log("CONNECTED DATABASE");
+    }
   } catch (error) {
     return Promise.reject(error);
   }
