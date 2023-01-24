@@ -1,11 +1,20 @@
-import mongoose from "mongoose";
+import mongoose, { ConnectOptions } from "mongoose";
+
+type ConnectionOptionsExtend = {
+  useNewUrlParser: boolean;
+  useUnifiedTopology: boolean;
+};
+
+const options: ConnectOptions & ConnectionOptionsExtend = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
 
 const connectMongo = async () => {
   try {
-    const { connection } = await mongoose.connect("mongodb://localhost:27017");
-    if (connection.readyState == 1) {
-      console.log("CONNECTED DATABASE");
-    }
+    mongoose.set("strictQuery", true);
+    await mongoose.connect(process.env.MONGODB_URI?.toString()!, options);
+    console.log("CONNECTED DATABASE");
   } catch (error) {
     return Promise.reject(error);
   }

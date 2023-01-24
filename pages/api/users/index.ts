@@ -17,7 +17,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       break;
     default:
       res.setHeader("Allow", ["GET", "POST"]);
-      res.status(405).end(`Method ${req.method} Not Allowd`);
+      res.status(405).end(`Method ${req.method} Not Allowed`);
       break;
   }
 }
