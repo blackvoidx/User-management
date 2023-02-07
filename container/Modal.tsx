@@ -14,7 +14,7 @@ import { userAction } from '../app/slice/userSlice'
 import { memo } from 'react'
 
 function BackdropModal({ isOpen, onClose }: any) {
-    const state = useAppSelector(state => state.user)
+    const state = useAppSelector((state: { user: any }) => state.user)
     const dispatch = useAppDispatch()
     const [deleteUser, { isError }] = useDeleteUserMutation()
 
@@ -28,7 +28,6 @@ function BackdropModal({ isOpen, onClose }: any) {
             bg='none'
             backdropFilter='auto'
             backdropInvert='90%'
-        // backdropBlur='2px'
         />
     )
 

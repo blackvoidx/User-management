@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Container, Heading, Button } from '@chakra-ui/react'
+import { Container, Heading } from '@chakra-ui/react'
 import AddUserForm from '../container/AddUserForm'
 import UserList from '../container/UserList'
 import { useAppDispatch, useAppSelector } from '../app/hook'

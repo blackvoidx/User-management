@@ -8,7 +8,13 @@ export const userApiSlice = apiSlice.injectEndpoints({
         url: "/api/users",
         method: "GET",
       }),
-      providesTags: ["User"],
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }: any) => ({ type: "User" as const, id })),
+              { type: "User", id: "LIST" },
+            ]
+          : [{ type: "User", id: "LIST" }],
     }),
     getUser: builder.query<MyFormValue, string>({
       query: (userId) => ({
@@ -29,7 +35,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         url: `/api/users/${userId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["User"],
+      invalidatesTags: [{ type: "User", id: "LIST" }],
     }),
     updateUser: builder.mutation<MyFormValue, MyFormValue>({
       query: (body) => ({
@@ -37,7 +43,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         method: "PUT",
         body,
       }),
-      invalidatesTags: ["User"],
+      invalidatesTags: [{ type: "User", id: "LIST" }],
     }),
   }),
 });
