@@ -1,16 +1,16 @@
-import { Flex, Stack } from "@chakra-ui/react"
-import { Form, Formik, } from "formik"
-import * as Yup from "yup"
+import { useAddUserMutation, useUpdateUserMutation } from "../app/api/userApi"
+import { formAction } from "../app/slice/formSlice"
+import { userAction } from "../app/slice/userSlice"
 import RadioInput from "../components/RadioInput"
 import UserInput from "../components/UserInput"
 import MyButton from "../components/ButtonForm"
+import { Flex, Stack } from "@chakra-ui/react"
 import { useAppDispatch } from "../app/hook"
-import { formAction } from "../app/slice/formSlice"
-import { useAddUserMutation, useUpdateUserMutation } from "../app/api/userApi"
 import { useAppSelector } from "../app/hook"
-import { userAction } from "../app/slice/userSlice"
-import fieldsData from "../data/field"
 import { MyFormValue } from "../types/type"
+import fieldsData from "../data/field"
+import { Form, Formik, } from "formik"
+import * as Yup from "yup"
 
 const AddUserForm = () => {
     const state = useAppSelector(state => state.form)

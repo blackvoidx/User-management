@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import { Container, Heading } from '@chakra-ui/react'
-import AddUserForm from '../container/AddUserForm'
-import UserList from '../container/UserList'
 import { useAppDispatch, useAppSelector } from '../app/hook'
+import { Container, Heading } from '@chakra-ui/react'
 import { formAction } from '../app/slice/formSlice'
+import AddUserForm from '../container/AddUserForm'
 import MyButton from '../components/ButtonForm'
+import UserList from '../container/UserList'
 import { AddIcon } from "@chakra-ui/icons"
+import Head from 'next/head'
 
 export default function Home() {
   const state = useAppSelector(state => state.form)

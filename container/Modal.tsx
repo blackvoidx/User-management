@@ -1,3 +1,8 @@
+import { useAppDispatch, useAppSelector } from '../app/hook'
+import { useDeleteUserMutation } from '../app/api/userApi'
+import { userAction } from '../app/slice/userSlice'
+import { Button, Text } from '@chakra-ui/react'
+import { memo } from 'react'
 import {
     Modal,
     ModalOverlay,
@@ -7,11 +12,6 @@ import {
     ModalBody,
     ModalCloseButton,
 } from '@chakra-ui/react'
-import { Button, Text } from '@chakra-ui/react'
-import { useAppDispatch, useAppSelector } from '../app/hook'
-import { useDeleteUserMutation } from '../app/api/userApi'
-import { userAction } from '../app/slice/userSlice'
-import { memo } from 'react'
 
 function BackdropModal({ isOpen, onClose }: any) {
     const state = useAppSelector((state: { user: any }) => state.user)

@@ -1,11 +1,11 @@
-import {
-    Tr,
-    Td,
-} from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons"
 import MyButton from '../components/ButtonForm'
 import { MyFormValue } from '../types/type'
 import { memo } from 'react'
+import {
+    Tr,
+    Td,
+} from '@chakra-ui/react'
 
 type UserItemProps = {
     onDelete: (Id: string) => void,

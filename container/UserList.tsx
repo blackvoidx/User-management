@@ -1,4 +1,11 @@
+import { useGetUsersQuery } from '../app/api/userApi'
+import { userAction } from '../app/slice/userSlice'
+import { formAction } from '../app/slice/formSlice'
+import { useDisclosure } from '@chakra-ui/react'
+import { useAppDispatch } from '../app/hook'
 import { memo, useCallback } from 'react'
+import BackdropModal from './Modal'
+import UserItem from './UserItem'
 import {
     Table,
     Thead,
@@ -8,13 +15,6 @@ import {
     TableCaption,
     TableContainer,
 } from '@chakra-ui/react'
-import { useGetUsersQuery } from '../app/api/userApi'
-import UserItem from './UserItem'
-import BackdropModal from './Modal'
-import { useDisclosure } from '@chakra-ui/react'
-import { useAppDispatch } from '../app/hook'
-import { userAction } from '../app/slice/userSlice'
-import { formAction } from '../app/slice/formSlice'
 
 const UserList = () => {
     const { isLoading, data } = useGetUsersQuery()
