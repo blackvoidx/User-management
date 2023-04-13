@@ -27,7 +27,7 @@ const fieldsData: fieldType[] = [
   },
   {
     name: "salary",
-    type: "text",
+    type: "number",
     label: "Salary",
   },
 ];
