@@ -66,7 +66,8 @@ const AddUserForm = () => {
                             key={field.name}
                             type={field.type}
                             name={field.name}
-                            label={field.label} />
+                            label={field.label}
+                            placeholder={field.placeholder} />
                     ))}
                     <RadioInput name="status" />
                 </Flex >

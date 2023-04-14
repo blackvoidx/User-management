@@ -18,7 +18,7 @@ const UserInput = (props: InputProps<string>) => {
                         id={props.name}
                         isInvalid={!!form.errors[props.name] && !!form.touched[props.name]}>
                         <FormLabel>{props.label}</FormLabel>
-                        <Input size='lg' marginBottom={1} type={props.type} {...field} />
+                        <Input size='lg' marginBottom={1} type={props.type} placeholder={props.placeholder} {...field} />
                         <ErrorMessage name={props.name} component={ErrorValidation} />
                     </FormControl>
                 )
