@@ -5,7 +5,8 @@ import ErrorValidation from "./ErrorValidation"
 interface InputProps<T> {
     label: T,
     name: T,
-    type: T
+    type: T,
+    placeholder?: T,
 }
 
 const UserInput = (props: InputProps<string>) => {
