@@ -38,10 +38,14 @@ const AddUserForm = () => {
 
     const onSubmit = async (data: MyFormValue, { resetForm }: any) => {
         if (state.editMode) {
-            await updateUser(data)
+            await updateUser(data).unwrap()
+                .then((result) => console.log("fulfilled", result))
+                .catch((err) => console.error("Rejected", err))
             dispatch(formAction.disableEditMode())
         } else {
-            await addUser(data)
+            await addUser(data).unwrap()
+                .then((result) => console.log("fulfilled", result))
+                .catch((err) => console.error("Rejected", err))
         }
         resetForm({})
     }

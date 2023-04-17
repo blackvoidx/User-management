@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, Input, FormHelperText } from "@chakra-ui/react"
+import { FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { Field, FieldProps, ErrorMessage } from "formik"
 import ErrorValidation from "./ErrorValidation"
 
