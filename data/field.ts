@@ -1,11 +1,11 @@
-interface fieldType {
+interface FieldType {
   name: string;
   type: string;
   label: string;
   placeholder?: string;
 }
 
-const fieldsData: fieldType[] = [
+const fieldsData: FieldType[] = [
   {
     name: "firstName",
     type: "text",

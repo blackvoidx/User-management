@@ -10,6 +10,10 @@ const options: ConnectOptions & ConnectionOptionsExtend = {
   useUnifiedTopology: true,
 };
 
+if (!process.env.MONGODB_URI) {
+  throw new Error("Add Mongo URI to .env.local");
+}
+
 const connectMongo = async () => {
   try {
     mongoose.set("strictQuery", true);
