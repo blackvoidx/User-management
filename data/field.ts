@@ -9,13 +9,13 @@ const fieldsData: FieldType[] = [
   {
     name: "firstName",
     type: "text",
-    label: "First name",
+    label: "First Name",
     placeholder: "example: Mohammad",
   },
   {
     name: "lastName",
     type: "text",
-    label: "Last name",
+    label: "Last Name",
     placeholder: "example: Mohammad zadeh",
   },
   {
@@ -27,7 +27,7 @@ const fieldsData: FieldType[] = [
   {
     name: "birthdayDate",
     type: "date",
-    label: "Birthday date",
+    label: "Birthday Date",
   },
   {
     name: "salary",

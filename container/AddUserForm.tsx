@@ -64,6 +64,11 @@ const AddUserForm = () => {
                     justifyContent="space-around"
                     alignItems="center"
                     gap="4"
+                    border={"1px"}
+                    borderColor={"GrayText"}
+                    marginX={"5"}
+                    padding={"5"}
+                    borderRadius={"20"}
                 >
                     {fieldsData.map(field => (
                         <UserInput

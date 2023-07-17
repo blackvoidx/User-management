@@ -22,8 +22,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxW="8xl" bg="whiteAlpha.300" paddingTop={'16'} >
-        <Heading as="h2" size="2xl" textAlign="center">User management</Heading>
+      <Container maxW="8xl" bg="whiteAlpha.300" paddingTop={'8'} >
+        <Heading as="h2" size="2xl" textAlign="center">User Management</Heading>
         {
           state.toggleFormShow ? <AddUserForm /> :
             <MyButton
